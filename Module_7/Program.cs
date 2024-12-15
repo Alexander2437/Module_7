@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Module_7;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,33 +14,44 @@ namespace Module_7
         }
     }
 
-    public class User
+    class Food
     {
-        public string email;
-        public string login;
 
-        email = Console.ReadLine(); 
+    }
+
+    class Fruits : Food
+    {
         
-        private int age;
+    }
 
-        public int Age
-        {
-            get
-            {
-                return age;
-            }
+    class Vegetables : Food
+    {
 
-            set
-            {
-                if (value < 18)
-                {
-                    Console.WriteLine("Возраст должен быть не меньше 18");
-                }
-                else
-                {
-                    age = value;
-                }
-            }
-        }
+    }
+
+    class Apple : Fruits
+    {
+
+    }
+
+    class Banana : Fruits
+    {
+
+    }
+
+    class Pear : Fruits
+    {
+
+    }
+
+    class Potato : Vegetables
+    {
+
+    }
+
+    class Tomato : Vegetables
+    {
+
     }
 }
+
