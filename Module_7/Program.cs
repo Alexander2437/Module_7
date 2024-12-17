@@ -1,9 +1,4 @@
-﻿using Module_7;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace Module_7
 {
@@ -11,47 +6,24 @@ namespace Module_7
     {
         static void Main(string[] args)
         {
+            
         }
     }
 
-    class Food
+    class Obj
     {
+        private string name;
+        private string owner;
+        private int length;
+        private int count;
 
-    }
-
-    class Fruits : Food
-    {
-        
-    }
-
-    class Vegetables : Food
-    {
-
-    }
-
-    class Apple : Fruits
-    {
-
-    }
-
-    class Banana : Fruits
-    {
-
-    }
-
-    class Pear : Fruits
-    {
-
-    }
-
-    class Potato : Vegetables
-    {
-
-    }
-
-    class Tomato : Vegetables
-    {
-
+        public Obj(string name, string ownerName, int objLength, int count)
+        {
+            this.name = name;
+            owner = ownerName;
+            length = objLength;
+            this.count = count;
+        }
     }
 }
 
