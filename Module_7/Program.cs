@@ -10,19 +10,35 @@ namespace Module_7
         }
     }
 
-    class Obj
+    class BaseClass
     {
-        private string name;
-        private string owner;
-        private int length;
-        private int count;
-
-        public Obj(string name, string ownerName, int objLength, int count)
+        public virtual int Counter
         {
-            this.name = name;
-            owner = ownerName;
-            length = objLength;
-            this.count = count;
+            get;
+            set;
+        }
+    }
+
+    class DerivedClass : BaseClass
+    {
+        private int counter;
+        public override int Counter
+        {
+            get 
+            {
+                return Counter;
+            }
+            set
+            {
+                if (value < 0)
+                {
+                    Console.WriteLine("Value must be greater than zwro.");
+                }
+                else
+                {
+                    Counter = value;
+                }
+            };
         }
     }
 }
