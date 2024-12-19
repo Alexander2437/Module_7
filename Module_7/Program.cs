@@ -6,29 +6,70 @@ namespace Module_7
     {
         static void Main(string[] args)
         {
-            Obj obj1 = new Obj() { Value = 54 };
-            Obj obj2 = new Obj() { Value = 47 };
+            var array = new Book[]
+            {
+                new Book
+                {
+                Name = "Мастер и Маргарита",
+                Author = "М.А. Булгаков"
+                },
+                new Book
+                {
+                  Name = "Отцы и дети",
+                  Author = "И.С. Тургенев"
+                },
+            };
+            BookCollection collection = new BookCollection(array);
 
-            Obj obj3 = obj1 - obj2;
-            Console.WriteLine(obj3.Value);
+            Book book = collection[1];
 
-            Obj obj4 = obj1 + obj2;
-            Console.WriteLine(obj4.Value);
+            Console.WriteLine("Название: {0}. Автор: {1}", book?.Name ?? "неизвестно", book?.Author ?? "неизвестен");
         }
     }
 
-    class Obj
+    // Класс для объекта “Книга”
+    class Book
     {
-        public int Value;
+        public string Name;
+        public string Author;
+    }
 
-        public static Obj operator + (Obj obj1, Obj obj2)
+    // Класс для объекта “Коллекция книг”
+    class BookCollection
+    {
+        // Закрытое поле, хранящее книги в виде массива
+        private Book[] collection;
+
+        // Конструктор с добавлением массива книг
+        public BookCollection(Book[] collection)
         {
-            return new Obj { Value = obj1.Value + obj2.Value };
+            this.collection = collection;
         }
 
-        public static Obj operator - (Obj obj1, Obj obj2)
+        // Индексатор по массиву
+        public Book this[int index]
         {
-            return new Obj { Value = obj1.Value - obj2.Value };
+            get
+            {
+                // Проверяем, чтобы индекс был в диапазоне для массива
+                if (index >= 0 && index < collection.Length)
+                {
+                    return collection[index];
+                }
+                else
+                {
+                    return null;
+                }
+            }
+
+            private set
+            {
+                // Проверяем, чтобы индекс был в диапазоне для массива
+                if (index >= 0 && index < collection.Length)
+                {
+                    collection[index] = value;
+                }
+            }
         }
     }
 }
